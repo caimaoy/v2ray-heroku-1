@@ -1,8 +1,9 @@
 #!/bin/bash
 # Install V2Ray
-curl https://install.direct/go.sh | bash
-# Remove extra functions
-rm -rf /usr/bin/v2ray/geosite.dat /usr/bin/v2ray/geoip.dat
+curl -H "Cache-Control: no-cache" -o /tmp/v2ray.zip https://github.com/v2ray/v2ray-core/releases/download/v${V2VER}/v2ray-linux-64.zip
+mkdir -p /etc/v2ray /var/log/v2ray /usr/bin/v2ray
+unzip /tmp/v2ray.zip v2ray v2ctl -d /usr/bin/v2ray
+chmod +x /usr/bin/v2ray/v2ray /usr/bin/v2ray/v2ctl
 # V2Ray new configuration
 cat <<-EOF > /etc/v2ray/config.json
 {
