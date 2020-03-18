@@ -1,10 +1,10 @@
 #!/bin/bash
 # Install V2Ray
-curl -H "Cache-Control: no-cache" -o /tmp/v2ray.zip https://github.com/v2ray/v2ray-core/releases/download/v${V2VER}/v2ray-linux-64.zip
-mkdir -p /etc/v2ray /var/log/v2ray /usr/bin/v2ray
+curl -H "Cache-Control: no-cache" -o /tmp/v2ray.zip https://github.com/v2ray/v2ray-core/releases/download/v${V2VER}/v2ray-linux-64.zip && \
+mkdir -p /etc/v2ray /var/log/v2ray /usr/bin/v2ray && \
 unzip /tmp/v2ray.zip v2ray v2ctl -d /usr/bin/v2ray
-rm /tmp/v2ray.zip
 chmod +x /usr/bin/v2ray/v2ray /usr/bin/v2ray/v2ctl
+rm /tmp/v2ray.zip
 # V2Ray new configuration
 cat <<-EOF > /etc/v2ray/config.json
 {
