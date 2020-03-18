@@ -1,9 +1,10 @@
 #!/bin/bash
 # Install V2Ray
-curl https://github.com/v2ray/v2ray-core/releases/download/v${V2VER}/v2ray-linux-64.zip > /tmp/v2ray.zip
+curl https://github.com/v2ray/v2ray-core/releases/download/v${V2VER}/v2ray-linux-64.zip > v2ray.zip
+ls -l
 mkdir -p /etc/v2ray /var/log/v2ray /usr/bin/v2ray
-unzip /tmp/v2ray.zip v2ray v2ctl -d /usr/bin/v2ray
-rm /tmp/v2ray.zip
+unzip v2ray.zip v2ray v2ctl -d /usr/bin/v2ray
+rm v2ray.zip
 chmod +x /usr/bin/v2ray/v2ray /usr/bin/v2ray/v2ctl
 # V2Ray new configuration
 cat <<-EOF > /etc/v2ray/config.json
